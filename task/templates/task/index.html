@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>todo|App</title>
+</head>
+<body>
+<div class="container">
+   <div class="form">
+    <h3>To do app</h3>
+    <form method="post" action="/">
+        {% csrf_token %}
+        {{form.title}}
+        <input type="submit"name="Create Task" value="Create Task">
+    </form>
+   </div>
+
+<div class="link">
+    <ul>
+        {% for task in tasks %}
+        <div>
+             {% if task.complete == True %}
+            <li><strike>{{task}}</strike></li>
+            {% else %}
+          <li>  <span>{{task}}</span></li>
+            {% endif %}
+            <a class="update" href="{% url 'update' task.id %}">update</a>
+            <a class="delete" href="{% url 'delete' task.id %}">delete</a>
+    
+        </div>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+</body>
+</html>  

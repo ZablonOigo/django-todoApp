@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{% static 'css/delete.css'%}">
+    <title>Document</title>
+   
+</head>
+<body>
+   <div class="container">
+    <p>Are you sure you want to delete "{{item}}" ?</p>
+    <div class="confirm">
+        <a  class="cancel" href="{% url 'index' %}">Cancel</a>
+    <form action="" method="post">
+     {% csrf_token %}
+     <input type="submit" value="confirm">
+ 
+    </form>
+    </div>
+ </body>
+   </div>
+</html>
