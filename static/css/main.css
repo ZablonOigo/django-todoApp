@@ -66,6 +66,7 @@ input[type=submit]:hover{
     background-color: #ED2939;
     color: #fff;
     border: none;
+    border-radius: 2px;
 }
 ul li {
     font-weight: 600;
